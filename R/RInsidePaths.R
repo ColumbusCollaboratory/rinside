@@ -3,9 +3,9 @@
 ## plus optinally an arch-specific directory on system building multi-arch
 RInsideLdPath <- function() {
     if (nzchar(.Platform$r_arch)) {     ## eg amd64, ia64, mips
-        system.file("lib",.Platform$r_arch,package="RInside")
+        system.file("lib",.Platform$r_arch,package="RInsideNodeJS")
     } else {
-        system.file("lib",package="RInside")
+        system.file("lib",package="RInsideNodeJS")
     }
 }
 
@@ -36,7 +36,7 @@ RInsideLdFlags <- function(static=TRUE) {
 
 ## Provide compiler flags -- i.e. -I/path/to/RInside.h
 RInsideCxxFlags <- function() {
-    path <- system.file( "include", package = "RInside" )
+    path <- system.file( "include", package = "RInsideNodeJS" )
     # if (.Platform$OS.type=="windows") {
     #     path <- shQuote(path)
     # }
@@ -59,7 +59,7 @@ LdFlags <- function(static=ifelse(length(grep("^linux",R.version$os))==0, TRUE, 
 # ## Use R's internal knowledge of path settings to find the lib/ directory
 # ## plus optinally an arch-specific directory on system building multi-arch
 # RInsideLdPath <- function() {
-#     Rcpp:::packageLibPath( package = "RInside" )
+#     Rcpp:::packageLibPath( package = "RInsideNodeJS" )
 # }
 
 ## Provide linker flags -- i.e. -L/path/to/libRInside -- as well as an
@@ -67,15 +67,14 @@ LdFlags <- function(static=ifelse(length(grep("^linux",R.version$os))==0, TRUE, 
 ## location.  This is not needed on OS X where we encode this as library
 ## built time (see src/Makevars) or Windows where we use a static library
 # RInsideLdFlags <- function(static=Rcpp:::staticLinking()) {
-#    Rcpp:::packageLdFlags( "RInside", static )
+#    Rcpp:::packageLdFlags( "RInsideNodeJS", static )
 # }
 
 ## Provide compiler flags -- i.e. -I/path/to/RInside.h
 # RInsideCxxFlags <- function() {
-#	Rcpp:::includeFlag( package = "RInside" )
+#	Rcpp:::includeFlag( package = "RInsideNodeJS" )
 # }
 
 ## Shorter names, and call cat() directly
 # CxxFlags <- function() cat(RInsideCxxFlags())
 # LdFlags <- function(static=Rcpp:::staticLinking()) cat(RInsideLdFlags(static))
-

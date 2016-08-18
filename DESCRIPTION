@@ -1,4 +1,4 @@
-Package: RInside
+Package: RInsideNodeJS
 Title: C++ Classes to Embed R in C++ Applications
 Version: 0.2.13.2
 Date: 2016-02-11
@@ -10,7 +10,7 @@ Description: C++ classes to embed R in C++ applications
  .
  As R itself is embedded into your application, a shared library build of R
  is required. This works on Linux, OS X and even on Windows provided you use
- the same tools used to build R itself.  
+ the same tools used to build R itself.
  .
  Numerous examples are provided in the eight subdirectories of the examples/
  directory of the installed package: standard, mpi (for parallel computing)
